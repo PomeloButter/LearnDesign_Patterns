@@ -8,6 +8,7 @@
     {       
         private static Singleton _singleton;
              
+
         private Singleton()
         {
         }
