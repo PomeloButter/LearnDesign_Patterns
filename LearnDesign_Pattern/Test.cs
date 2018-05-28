@@ -1,5 +1,6 @@
 ﻿using System;
 using LearnDesigin_Pattern.Singleton_Patterns;
+using LearnDesign_Pattern.AbstractFactory;
 using LearnDesign_Pattern.Factory;
 using LearnDesign_Pattern.SimpleFactory;
 using Food = LearnDesign_Pattern.Factory.Food;
@@ -37,7 +38,22 @@ namespace LearnDesign_Pattern
 
             Food minceMeatEggplant = minceMeatEggplantFactor.CreateFoodFactory();
             minceMeatEggplant.Print();
-            
+
+            //抽象工厂模式
+            Console.WriteLine("---------AbstractFactory----------");
+            AbstractFactory.AbstractFactory nanChangFactory=new NanChangFactory();
+
+            nanChangFactory.CreateYaBo().Print();
+            nanChangFactory.CreateYaJia().Print();
+
+            AbstractFactory.AbstractFactory shangHaiFactory=new ShangHaiFactory();
+
+            shangHaiFactory.CreateYaBo().Print();
+            shangHaiFactory.CreateYaJia().Print();
+
+            AbstractFactory.AbstractFactory huNanFactory=new HuNanFactory();
+            huNanFactory.CreateYaBo().Print();
+            huNanFactory.CreateYaJia().Print();
             Console.ReadLine();
         }
     }
