@@ -1,7 +1,7 @@
 ﻿using System;
-using LearnDesigin_Pattern.SimpleFactory;
 using LearnDesigin_Pattern.Singleton_Patterns;
 using LearnDesign_Pattern.Factory;
+using LearnDesign_Pattern.SimpleFactory;
 using Food = LearnDesign_Pattern.Factory.Food;
 
 namespace LearnDesign_Pattern
@@ -19,9 +19,9 @@ namespace LearnDesign_Pattern
            
             //简单工厂模式
             Console.WriteLine("---------SimpleFactory----------");
-            LearnDesigin_Pattern.SimpleFactory.Food f1 = SimpleFoodFactory.CreateFood("A");
+            SimpleFactory.Food f1 = SimpleFoodFactory.CreateFood("TomaoScrambledEggs");
             f1.Print();
-            LearnDesigin_Pattern.SimpleFactory.Food f2 = SimpleFoodFactory.CreateFood("B");
+            SimpleFactory.Food f2 = SimpleFoodFactory.CreateFood("ShreddedPorkWithPotatoes");
             f2.Print();
            
             //工厂模式

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesigin_Pattern.SimpleFactory
+﻿namespace LearnDesign_Pattern.SimpleFactory
 {
 
     /// <summary>
