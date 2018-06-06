@@ -1,6 +1,7 @@
 ﻿using System;
 using LearnDesigin_Pattern.Singleton_Patterns;
 using LearnDesign_Pattern.AbstractFactory;
+using LearnDesign_Pattern.Builder_Patterns;
 using LearnDesign_Pattern.Factory;
 using LearnDesign_Pattern.SimpleFactory;
 using Food = LearnDesign_Pattern.Factory.Food;
@@ -54,6 +55,21 @@ namespace LearnDesign_Pattern
             AbstractFactory.AbstractFactory huNanFactory=new HuNanFactory();
             huNanFactory.CreateYaBo().Print();
             huNanFactory.CreateYaJia().Print();
+           
+
+            //建造者模式
+            Console.WriteLine("---------Builder_Patterns----------");
+            Director director=new Director();
+            Builder b1=new BuildFirst();
+            Builder b2=new BuildSecond();
+
+            director.Construct(b1);
+            Computer c1 = b1.GetComputer();
+            c1.Show();
+
+            director.Construct(b2);
+            Computer c2 = b2.GetComputer();
+            c2.Show();
             Console.ReadLine();
         }
     }
