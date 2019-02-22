@@ -3,12 +3,13 @@ using LearnDesigin_Pattern.Singleton_Patterns;
 using LearnDesign_Pattern.AbstractFactory;
 using LearnDesign_Pattern.Builder_Patterns;
 using LearnDesign_Pattern.Factory;
+using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.SimpleFactory;
 using Food = LearnDesign_Pattern.Factory.Food;
 
 namespace LearnDesign_Pattern
 {
-    class Test
+    public class Client
     {
         public static void Main(string[] args)
         {
@@ -70,6 +71,19 @@ namespace LearnDesign_Pattern
             director.Construct(b2);
             Computer c2 = b2.GetComputer();
             c2.Show();
+         
+
+            //原型模式
+            Console.WriteLine("---------Prototype_Patterns----------");
+
+            MonkeyKingPrototype prototype=new ConcretePrototype("pipixiong");
+
+            MonkeyKingPrototype cloneMonkeyKingPrototype = prototype.Clone() as ConcretePrototype;
+            Console.WriteLine("1:"+cloneMonkeyKingPrototype?.Id);
+
+            MonkeyKingPrototype clonePrototype = prototype.Clone() as ConcretePrototype;
+            Console.WriteLine("2:" + cloneMonkeyKingPrototype?.Id);
+
             Console.ReadLine();
         }
     }
