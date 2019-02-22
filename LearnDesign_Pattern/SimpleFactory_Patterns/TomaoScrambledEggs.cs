@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LearnDesign_Pattern.SimpleFactory
+namespace LearnDesign_Pattern.SimpleFactory_Patterns
 {
     class TomaoScrambledEggs:Food
     {

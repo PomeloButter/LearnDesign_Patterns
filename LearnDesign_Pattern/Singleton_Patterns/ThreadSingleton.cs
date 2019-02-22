@@ -1,4 +1,4 @@
-﻿namespace LearnDesigin_Pattern.Singleton_Patterns
+﻿namespace LearnDesign_Pattern.Singleton_Patterns
 {
     /// <summary>
     /// 多线程下的单例

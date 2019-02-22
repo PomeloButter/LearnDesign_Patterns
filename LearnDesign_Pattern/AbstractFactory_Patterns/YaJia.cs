@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.AbstractFactory
+﻿namespace LearnDesign_Pattern.AbstractFactory_Patterns
 {
    public abstract class YaJia
     {

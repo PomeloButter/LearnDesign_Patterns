@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.Factory
+﻿namespace LearnDesign_Pattern.Factory_Patterns
 {
     /// <summary>
     /// 土豆肉丝工厂类

@@ -1,4 +1,4 @@
-﻿namespace LearnDesign_Pattern.SimpleFactory
+﻿namespace LearnDesign_Pattern.SimpleFactory_Patterns
 {
 
     /// <summary>

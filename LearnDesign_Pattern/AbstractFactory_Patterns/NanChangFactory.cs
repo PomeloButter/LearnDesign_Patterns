@@ -1,4 +1,4 @@
-﻿namespace LearnDesign_Pattern.AbstractFactory
+﻿namespace LearnDesign_Pattern.AbstractFactory_Patterns
 {
     public class NanChangFactory:AbstractFactory
     {

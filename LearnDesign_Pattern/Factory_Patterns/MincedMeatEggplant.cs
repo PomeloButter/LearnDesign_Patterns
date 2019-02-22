@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace LearnDesign_Pattern.Factory
+namespace LearnDesign_Pattern.Factory_Patterns
 {
     /// <summary>
     /// 肉末茄子

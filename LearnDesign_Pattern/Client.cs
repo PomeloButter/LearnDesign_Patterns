@@ -1,11 +1,11 @@
 ﻿using System;
-using LearnDesigin_Pattern.Singleton_Patterns;
-using LearnDesign_Pattern.AbstractFactory;
+using LearnDesign_Pattern.AbstractFactory_Patterns;
 using LearnDesign_Pattern.Builder_Patterns;
-using LearnDesign_Pattern.Factory;
+using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
-using LearnDesign_Pattern.SimpleFactory;
-using Food = LearnDesign_Pattern.Factory.Food;
+using LearnDesign_Pattern.SimpleFactory_Patterns;
+using LearnDesign_Pattern.Singleton_Patterns;
+using Food = LearnDesign_Pattern.Factory_Patterns.Food;
 
 namespace LearnDesign_Pattern
 {
@@ -22,9 +22,9 @@ namespace LearnDesign_Pattern
            
             //简单工厂模式
             Console.WriteLine("---------SimpleFactory----------");
-            SimpleFactory.Food f1 = SimpleFoodFactory.CreateFood("TomaoScrambledEggs");
+            SimpleFactory_Patterns.Food f1 = SimpleFoodFactory.CreateFood("TomaoScrambledEggs");
             f1.Print();
-            SimpleFactory.Food f2 = SimpleFoodFactory.CreateFood("ShreddedPorkWithPotatoes");
+            SimpleFactory_Patterns.Food f2 = SimpleFoodFactory.CreateFood("ShreddedPorkWithPotatoes");
             f2.Print();
            
             //工厂模式
@@ -43,17 +43,17 @@ namespace LearnDesign_Pattern
 
             //抽象工厂模式
             Console.WriteLine("---------AbstractFactory----------");
-            AbstractFactory.AbstractFactory nanChangFactory=new NanChangFactory();
+            AbstractFactory nanChangFactory=new NanChangFactory();
 
             nanChangFactory.CreateYaBo().Print();
             nanChangFactory.CreateYaJia().Print();
 
-            AbstractFactory.AbstractFactory shangHaiFactory=new ShangHaiFactory();
+            AbstractFactory shangHaiFactory=new ShangHaiFactory();
 
             shangHaiFactory.CreateYaBo().Print();
             shangHaiFactory.CreateYaJia().Print();
 
-            AbstractFactory.AbstractFactory huNanFactory=new HuNanFactory();
+            AbstractFactory huNanFactory=new HuNanFactory();
             huNanFactory.CreateYaBo().Print();
             huNanFactory.CreateYaJia().Print();
            

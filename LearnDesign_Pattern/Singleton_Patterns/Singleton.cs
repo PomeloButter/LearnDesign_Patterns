@@ -1,4 +1,4 @@
-﻿namespace LearnDesigin_Pattern.Singleton_Patterns
+﻿namespace LearnDesign_Pattern.Singleton_Patterns
 {
     /// <summary>
     /// 单例模式也就是保证一个类只有一个实例的一种实现方法
