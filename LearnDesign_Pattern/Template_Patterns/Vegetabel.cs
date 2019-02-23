@@ -7,10 +7,10 @@ namespace LearnDesign_Pattern.Template_Patterns
         public void cookVegetable()
         {
             Console.WriteLine("炒蔬菜的一般方法");
-            this.PourOil();
-            this.HeatOil();
-            this.PourVegetable();
-            this.Stirfry();
+            PourOil();
+            HeatOil();
+            PourVegetable();
+            Stirfry();
         }
 
         private void Stirfry()

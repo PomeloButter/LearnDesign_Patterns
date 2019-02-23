@@ -183,23 +183,23 @@ namespace LearnDesign_Pattern
                 var d = new ConcreteFlyweight("D");
                 factory.Flyweights.Add("D", d);
             }
+
             //代理模式
             Console.WriteLine("---------Proxy_Patterns----------");
-            Person proxy=new Friend();
+            Person proxy = new Friend();
             proxy.BuyProduct();
 
             //模板方法
             Console.WriteLine("---------Template_Patterns----------");
-            Spinach spinach=new Spinach();
+            var spinach = new Spinach();
             spinach.cookVegetable();
-            
-            
+
 
             //命令模式
             Console.WriteLine("---------Command_Patterns----------");
-            Receiver receiver=new Receiver();
-            Command command=new ConcreteCommand(receiver);
-            Invoke invoke=new Invoke(command);
+            var receiver = new Receiver();
+            Command command = new ConcreteCommand(receiver);
+            var invoke = new Invoke(command);
             invoke.ExecuteCommand();
 
             Console.ReadKey();

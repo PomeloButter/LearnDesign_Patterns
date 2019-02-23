@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.Command_Patterns
+﻿namespace LearnDesign_Pattern.Command_Patterns
 {
     public abstract class Command
     {

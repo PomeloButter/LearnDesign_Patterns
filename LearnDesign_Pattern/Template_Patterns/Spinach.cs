@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Template_Patterns
 {
-    public class Spinach:Vegetabel
+    public class Spinach : Vegetabel
     {
         public override void PourVegetable()
         {
