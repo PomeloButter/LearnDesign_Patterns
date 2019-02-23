@@ -3,6 +3,7 @@ using LearnDesign_Pattern.AbstractFactory_Patterns;
 using LearnDesign_Pattern.Adapter_Patterns;
 using LearnDesign_Pattern.Bridge_Patterns;
 using LearnDesign_Pattern.Builder_Patterns;
+using LearnDesign_Pattern.Composite_Patterns;
 using LearnDesign_Pattern.Decorator_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
@@ -119,6 +120,31 @@ namespace LearnDesign_Pattern
             var sticker = new Sticker(phone);
             var accessories = new Accessories(sticker);
             accessories.Print();
+
+            //组合模式
+            Console.WriteLine("---------Composite_Patterns----------");
+            ComplexGraphics complexGraphics=new ComplexGraphics("一个复杂图形和两条线段组成的复杂图形");
+            complexGraphics.Add(new Line("线A"));
+            ComplexGraphics complexGraphicsCG = new ComplexGraphics("一个圆和一条线组成的复杂图形");
+            complexGraphicsCG.Add(new Circle("圆"));
+            complexGraphicsCG.Add(new Line("线B"));
+            complexGraphics.Add(complexGraphicsCG);
+            Line line=new Line("线C");
+            complexGraphics.Add(line);
+
+            Console.WriteLine("复杂图形的绘制如下：");
+            Console.WriteLine("---------------------");
+            complexGraphics.Draw();
+            Console.WriteLine("复杂图形绘制完成");
+            Console.WriteLine("---------------------");
+
+            complexGraphics.Remove(line);
+            Console.WriteLine("移除线段C后，复杂图形的绘制如下：");
+            Console.WriteLine("---------------------");
+            complexGraphics.Draw();
+            Console.WriteLine("复杂图形绘制完成");
+            Console.WriteLine("---------------------");
+
 
             Console.ReadLine();
         }
