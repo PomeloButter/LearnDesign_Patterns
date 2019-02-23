@@ -9,6 +9,7 @@ using LearnDesign_Pattern.Facade_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Flyweight_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
+using LearnDesign_Pattern.Proxy_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
 using LearnDesign_Pattern.Singleton_Patterns;
 
@@ -180,6 +181,10 @@ namespace LearnDesign_Pattern
                 var d = new ConcreteFlyweight("D");
                 factory.Flyweights.Add("D", d);
             }
+            //代理模式
+            Console.WriteLine("---------Proxy_Patterns----------");
+            Person proxy=new Friend();
+            proxy.BuyProduct();
 
             Console.ReadKey();
 
