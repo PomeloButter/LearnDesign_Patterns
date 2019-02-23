@@ -5,7 +5,9 @@ using LearnDesign_Pattern.Bridge_Patterns;
 using LearnDesign_Pattern.Builder_Patterns;
 using LearnDesign_Pattern.Composite_Patterns;
 using LearnDesign_Pattern.Decorator_Patterns;
+using LearnDesign_Pattern.Facade_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
+using LearnDesign_Pattern.Flyweight_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
 using LearnDesign_Pattern.Singleton_Patterns;
@@ -123,13 +125,13 @@ namespace LearnDesign_Pattern
 
             //组合模式
             Console.WriteLine("---------Composite_Patterns----------");
-            ComplexGraphics complexGraphics=new ComplexGraphics("一个复杂图形和两条线段组成的复杂图形");
+            var complexGraphics = new ComplexGraphics("一个复杂图形和两条线段组成的复杂图形");
             complexGraphics.Add(new Line("线A"));
-            ComplexGraphics complexGraphicsCG = new ComplexGraphics("一个圆和一条线组成的复杂图形");
+            var complexGraphicsCG = new ComplexGraphics("一个圆和一条线组成的复杂图形");
             complexGraphicsCG.Add(new Circle("圆"));
             complexGraphicsCG.Add(new Line("线B"));
             complexGraphics.Add(complexGraphicsCG);
-            Line line=new Line("线C");
+            var line = new Line("线C");
             complexGraphics.Add(line);
 
             Console.WriteLine("复杂图形的绘制如下：");
@@ -145,8 +147,43 @@ namespace LearnDesign_Pattern
             Console.WriteLine("复杂图形绘制完成");
             Console.WriteLine("---------------------");
 
+            //外观模式
+            Console.WriteLine("---------Facade_Patterns----------");
+            var facade = new RegistrationFacade();
+            if (facade.RegisterCourse("设计模式", "pomelo"))
+                Console.WriteLine("选课成功");
+            else
+                Console.WriteLine("选课失败");
 
-            Console.ReadLine();
+            //享元模式
+            Console.WriteLine("---------Flyweight_Patterns----------");
+
+            var externalstate = 10;
+            var factory = new FlyweightFactory();
+            var flyweightA = factory.GetfFlyweight("A");
+            flyweightA?.Operation(externalstate);
+
+            var flyweightB = factory.GetfFlyweight("B");
+            flyweightB?.Operation(externalstate);
+            var flyweightC = factory.GetfFlyweight("C");
+            flyweightC?.Operation(externalstate);
+
+            var flyweightD = factory.GetfFlyweight("D");
+            if (flyweightD != null)
+            {
+                flyweightD.Operation(externalstate);
+            }
+            else
+            {
+                Console.WriteLine("驻留池中不存在字符串D");
+                // 这时候就需要创建一个对象并放入驻留池中
+                var d = new ConcreteFlyweight("D");
+                factory.Flyweights.Add("D", d);
+            }
+
+            Console.ReadKey();
+
+
         }
     }
 }
