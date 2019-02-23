@@ -1,6 +1,7 @@
 ﻿using System;
 using LearnDesign_Pattern.AbstractFactory_Patterns;
 using LearnDesign_Pattern.Adapter_Patterns;
+using LearnDesign_Pattern.Bridge_Patterns;
 using LearnDesign_Pattern.Builder_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
@@ -88,7 +89,20 @@ namespace LearnDesign_Pattern
             //适配器模式
             Console.WriteLine("---------Adapter_Patterns----------");
             ThreeHole threeHole=new PowerAdapter();
-            threeHole.Request();;
+            threeHole.Request();
+
+            //桥接模式
+            Console.WriteLine("---------Bridge_Patterns----------");
+            RemoteControl remoteControl=new ConcreteRemote();
+            remoteControl.Implementor=new XiaoMi();
+            remoteControl.On();
+            remoteControl.Off();
+            remoteControl.SetChannel();
+
+            remoteControl.Implementor=new Samsung();
+            remoteControl.On();
+            remoteControl.Off();
+            remoteControl.SetChannel();
 
             Console.ReadLine();
         }
