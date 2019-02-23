@@ -2,8 +2,11 @@
 
 namespace LearnDesign_Pattern.AbstractFactory_Patterns
 {
-    public class HuNanYaJia:YaJia
+    public class HuNanYaJia : YaJia
     {
-        public override void Print()=> Console.WriteLine("HuNanYaJia");
+        public override void Print()
+        {
+            Console.WriteLine("HuNanYaJia");
+        }
     }
 }

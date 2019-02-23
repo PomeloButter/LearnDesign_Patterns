@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.Builder_Patterns
+﻿namespace LearnDesign_Pattern.Builder_Patterns
 {
-    class Director
+    internal class Director
     {
         public void Construct(Builder builder)
         {

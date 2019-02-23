@@ -1,17 +1,18 @@
 ﻿namespace LearnDesign_Pattern.Decorator_Patterns
 {
-    public class Decorator:Phone
+    public class Decorator : Phone
     {
-        private Phone _phone;
+        private readonly Phone _phone;
 
         public Decorator(Phone phone)
         {
-            this._phone = phone;
+            _phone = phone;
         }
 
         public override void Print()
         {
-            _phone?.Print();;
+            _phone?.Print();
+            ;
         }
     }
 }

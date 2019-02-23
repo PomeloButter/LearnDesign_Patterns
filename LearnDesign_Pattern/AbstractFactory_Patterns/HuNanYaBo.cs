@@ -2,8 +2,11 @@
 
 namespace LearnDesign_Pattern.AbstractFactory_Patterns
 {
-    public class HuNanYaBo:YaBo
+    public class HuNanYaBo : YaBo
     {
-        public override void Print() => Console.WriteLine("HuNanYaBo");
+        public override void Print()
+        {
+            Console.WriteLine("HuNanYaBo");
+        }
     }
 }

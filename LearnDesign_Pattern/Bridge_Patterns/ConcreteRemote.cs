@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Bridge_Patterns
 {
-    public class ConcreteRemote:RemoteControl
+    public class ConcreteRemote : RemoteControl
     {
         public override void SetChannel()
         {

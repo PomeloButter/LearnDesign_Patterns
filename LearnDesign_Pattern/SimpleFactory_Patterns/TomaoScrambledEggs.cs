@@ -2,11 +2,11 @@
 
 namespace LearnDesign_Pattern.SimpleFactory_Patterns
 {
-    class TomaoScrambledEggs:Food
+    internal class TomaoScrambledEggs : Food
     {
         public override void Print()
         {
-           Console.WriteLine("TomaoScrambledEggs");
+            Console.WriteLine("TomaoScrambledEggs");
         }
     }
 }

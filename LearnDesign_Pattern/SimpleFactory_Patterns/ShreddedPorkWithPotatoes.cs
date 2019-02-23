@@ -2,11 +2,11 @@
 
 namespace LearnDesign_Pattern.SimpleFactory_Patterns
 {
-    class ShreddedPorkWithPotatoes:Food
+    internal class ShreddedPorkWithPotatoes : Food
     {
         public override void Print()
         {
-           Console.WriteLine("ShreddedPorkWithPotatoes");
+            Console.WriteLine("ShreddedPorkWithPotatoes");
         }
     }
 }

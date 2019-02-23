@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.Prototype_Patterns
+﻿namespace LearnDesign_Pattern.Prototype_Patterns
 {
-   public class ConcretePrototype:MonkeyKingPrototype
+    public class ConcretePrototype : MonkeyKingPrototype
     {
         public ConcretePrototype(string id) : base(id)
         {
@@ -12,7 +8,7 @@ namespace LearnDesign_Pattern.Prototype_Patterns
 
         public override MonkeyKingPrototype Clone()
         {
-            return (MonkeyKingPrototype) this.MemberwiseClone();
+            return (MonkeyKingPrototype) MemberwiseClone();
         }
     }
 }

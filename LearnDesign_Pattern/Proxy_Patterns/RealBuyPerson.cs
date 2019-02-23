@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Proxy_Patterns
 {
-    public class RealBuyPerson:Person
+    public class RealBuyPerson : Person
     {
         public override void BuyProduct()
         {

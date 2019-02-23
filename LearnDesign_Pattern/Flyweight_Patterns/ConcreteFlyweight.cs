@@ -2,9 +2,9 @@
 
 namespace LearnDesign_Pattern.Flyweight_Patterns
 {
-    public class ConcreteFlyweight:Flyweight
+    public class ConcreteFlyweight : Flyweight
     {
-        private string intrinsicstate;
+        private readonly string intrinsicstate;
 
         public ConcreteFlyweight(string intrinsicstate)
         {

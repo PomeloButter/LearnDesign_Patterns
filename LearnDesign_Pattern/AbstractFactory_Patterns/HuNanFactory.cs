@@ -1,9 +1,15 @@
 ﻿namespace LearnDesign_Pattern.AbstractFactory_Patterns
 {
-    class HuNanFactory:AbstractFactory
+    internal class HuNanFactory : AbstractFactory
     {
-        public override YaBo CreateYaBo()=>new HuNanYaBo();
+        public override YaBo CreateYaBo()
+        {
+            return new HuNanYaBo();
+        }
 
-        public override YaJia CreateYaJia() =>new HuNanYaJia();
+        public override YaJia CreateYaJia()
+        {
+            return new HuNanYaJia();
+        }
     }
 }

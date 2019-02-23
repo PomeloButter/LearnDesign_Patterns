@@ -2,27 +2,21 @@
 {
     public class RemoteControl
     {
-        private Tv _implementor;
-
-        public Tv Implementor
-        {
-            get => _implementor;
-            set => _implementor = value;
-        }
+        public Tv Implementor { get; set; }
 
         public virtual void On()
         {
-            _implementor.On();
+            Implementor.On();
         }
 
         public virtual void Off()
         {
-            _implementor.Off();
+            Implementor.Off();
         }
 
         public virtual void SetChannel()
         {
-            _implementor.TuneChannel();
+            Implementor.TuneChannel();
         }
     }
 }

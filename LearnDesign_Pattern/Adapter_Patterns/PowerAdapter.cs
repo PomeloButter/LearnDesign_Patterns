@@ -2,7 +2,8 @@
 {
     public class PowerAdapter : ThreeHole
     {
-        public TwoHole TwoHole=new TwoHole();
+        public TwoHole TwoHole = new TwoHole();
+
         public override void Request()
         {
             TwoHole.SpecificRequest();

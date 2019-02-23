@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Factory_Patterns
 {
-    class TomatoScrambledEggs : Food
+    internal class TomatoScrambledEggs : Food
     {
         public override void Print()
         {

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.Builder_Patterns
+﻿namespace LearnDesign_Pattern.Builder_Patterns
 {
-    class BuildSecond:Builder
+    internal class BuildSecond : Builder
     {
-        Computer computer=new Computer();
+        private readonly Computer computer = new Computer();
+
         public override void BuildPartCpu()
         {
-           computer.Add("Cpu A");
+            computer.Add("Cpu A");
         }
 
         public override void BuildPartMainBoard()

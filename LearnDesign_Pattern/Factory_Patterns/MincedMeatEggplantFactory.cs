@@ -1,10 +1,10 @@
 ﻿namespace LearnDesign_Pattern.Factory_Patterns
 {
-    class MincedMeatEggplantFactory:Creator
+    internal class MincedMeatEggplantFactory : Creator
     {
         public override Food CreateFoodFactory()
         {
-          return  new MincedMeatEggplant();
+            return new MincedMeatEggplant();
         }
     }
 }

@@ -2,8 +2,11 @@
 
 namespace LearnDesign_Pattern.AbstractFactory_Patterns
 {
-    class ShangHaiYaBo:YaBo
+    internal class ShangHaiYaBo : YaBo
     {
-        public override void Print()=> Console.WriteLine("ShangHaiYaBo");
+        public override void Print()
+        {
+            Console.WriteLine("ShangHaiYaBo");
+        }
     }
 }

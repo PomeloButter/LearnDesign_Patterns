@@ -1,6 +1,6 @@
 ﻿namespace LearnDesign_Pattern.Factory_Patterns
 {
-    abstract class Food
+    internal abstract class Food
     {
         public abstract void Print();
     }

@@ -2,12 +2,12 @@
 {
     public abstract class MonkeyKingPrototype
     {
-        public string Id { get; set; }
-
         public MonkeyKingPrototype(string id)
         {
             Id = id;
         }
+
+        public string Id { get; set; }
 
         public abstract MonkeyKingPrototype Clone();
     }

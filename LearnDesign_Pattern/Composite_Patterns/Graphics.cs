@@ -1,15 +1,13 @@
-﻿using System;
-
-namespace LearnDesign_Pattern.Composite_Patterns
+﻿namespace LearnDesign_Pattern.Composite_Patterns
 {
     public abstract class Graphics
     {
-        public string Name { get; set; }
-
         public Graphics(string name)
         {
-            this.Name = name;
+            Name = name;
         }
+
+        public string Name { get; set; }
 
         public abstract void Draw();
     }

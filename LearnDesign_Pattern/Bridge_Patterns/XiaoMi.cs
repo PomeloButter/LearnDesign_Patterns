@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Bridge_Patterns
 {
-    public class XiaoMi:Tv
+    public class XiaoMi : Tv
     {
         public override void On()
         {

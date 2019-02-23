@@ -4,6 +4,5 @@
     {
         public abstract YaBo CreateYaBo();
         public abstract YaJia CreateYaJia();
-
     }
 }

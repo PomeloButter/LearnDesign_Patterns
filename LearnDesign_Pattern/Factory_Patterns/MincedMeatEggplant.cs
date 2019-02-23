@@ -3,13 +3,13 @@
 namespace LearnDesign_Pattern.Factory_Patterns
 {
     /// <summary>
-    /// 肉末茄子
+    ///     肉末茄子
     /// </summary>
-    class MincedMeatEggplant:Food
+    internal class MincedMeatEggplant : Food
     {
         public override void Print()
         {
-           Console.WriteLine("MincedMeatEggplant");
+            Console.WriteLine("MincedMeatEggplant");
         }
     }
 }

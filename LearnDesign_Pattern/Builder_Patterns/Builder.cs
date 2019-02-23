@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnDesign_Pattern.Builder_Patterns
+﻿namespace LearnDesign_Pattern.Builder_Patterns
 {
-    abstract  class Builder
+    internal abstract class Builder
     {
         //装cpu
         public abstract void BuildPartCpu();
+
         //装主板
         public abstract void BuildPartMainBoard();
+
         //获得组装的电脑
         public abstract Computer GetComputer();
     }

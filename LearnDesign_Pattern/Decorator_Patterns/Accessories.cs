@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Decorator_Patterns
 {
-    public class Accessories:Decorator
+    public class Accessories : Decorator
     {
         public Accessories(Phone phone) : base(phone)
         {

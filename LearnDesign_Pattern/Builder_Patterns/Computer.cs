@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LearnDesign_Pattern.Builder_Patterns
 {
-    class Computer
+    internal class Computer
     {
-        private  IList<string> _parts=new List<string>();
+        private readonly IList<string> _parts = new List<string>();
 
         public void Add(string part)
         {
@@ -16,10 +15,7 @@ namespace LearnDesign_Pattern.Builder_Patterns
         public void Show()
         {
             Console.WriteLine("go...go...go");
-            foreach (var part in _parts)
-            {
-                Console.WriteLine("In assembly："+part);
-            }
+            foreach (var part in _parts) Console.WriteLine("In assembly：" + part);
             Console.WriteLine("computer OK");
         }
     }

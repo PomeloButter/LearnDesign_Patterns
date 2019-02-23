@@ -4,7 +4,6 @@
     {
         public virtual void Request()
         {
-
         }
     }
 }

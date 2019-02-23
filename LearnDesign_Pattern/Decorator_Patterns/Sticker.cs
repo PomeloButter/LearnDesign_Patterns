@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Decorator_Patterns
 {
-    public class Sticker:Decorator
+    public class Sticker : Decorator
     {
         public Sticker(Phone phone) : base(phone)
         {

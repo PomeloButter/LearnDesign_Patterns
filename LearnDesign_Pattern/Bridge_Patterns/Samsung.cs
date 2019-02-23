@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Bridge_Patterns
 {
-    public class Samsung:Tv
+    public class Samsung : Tv
     {
         public override void On()
         {

@@ -1,16 +1,19 @@
 ﻿namespace LearnDesign_Pattern.Singleton_Patterns
 {
     /// <summary>
-    /// 多线程下的单例
+    ///     多线程下的单例
     /// </summary>
-    class ThreadSingleton
+    internal class ThreadSingleton
     {
         private static ThreadSingleton _threadSingleton;
+
         // 定义一个标识来确保线程同步
         private static readonly object Locker = new object();
+
         private ThreadSingleton()
         {
         }
+
         public ThreadSingleton GetThreadSingleton()
         {
             // 当第一个线程运行到这里时，此时会对locker对象 "加锁"，
@@ -19,12 +22,9 @@
             if (_threadSingleton != null) return _threadSingleton;
             lock (Locker)
             {
-                if (_threadSingleton == null)
-                {
-                    // ReSharper disable once PossibleMultipleWriteAccessInDoubleCheckLocking
-                    _threadSingleton = new ThreadSingleton();
-                }
+                if (_threadSingleton == null) _threadSingleton = new ThreadSingleton();
             }
+
             return _threadSingleton;
         }
     }

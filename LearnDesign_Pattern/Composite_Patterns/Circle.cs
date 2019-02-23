@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Composite_Patterns
 {
-    public class Circle:Graphics
+    public class Circle : Graphics
     {
         public Circle(string name) : base(name)
         {

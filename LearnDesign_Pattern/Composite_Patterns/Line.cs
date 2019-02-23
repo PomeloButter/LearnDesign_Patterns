@@ -2,7 +2,7 @@
 
 namespace LearnDesign_Pattern.Composite_Patterns
 {
-    public class Line:Graphics
+    public class Line : Graphics
     {
         public Line(string name) : base(name)
         {
