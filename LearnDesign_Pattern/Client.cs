@@ -3,6 +3,7 @@ using LearnDesign_Pattern.AbstractFactory_Patterns;
 using LearnDesign_Pattern.Adapter_Patterns;
 using LearnDesign_Pattern.Bridge_Patterns;
 using LearnDesign_Pattern.Builder_Patterns;
+using LearnDesign_Pattern.Command_Patterns;
 using LearnDesign_Pattern.Composite_Patterns;
 using LearnDesign_Pattern.Decorator_Patterns;
 using LearnDesign_Pattern.Facade_Patterns;
@@ -192,9 +193,16 @@ namespace LearnDesign_Pattern
             Spinach spinach=new Spinach();
             spinach.cookVegetable();
             
+            
+
+            //命令模式
+            Console.WriteLine("---------Command_Patterns----------");
+            Receiver receiver=new Receiver();
+            Command command=new ConcreteCommand(receiver);
+            Invoke invoke=new Invoke(command);
+            invoke.ExecuteCommand();
+
             Console.ReadKey();
-
-
         }
     }
 }
