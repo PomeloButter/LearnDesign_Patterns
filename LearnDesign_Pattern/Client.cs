@@ -12,6 +12,7 @@ using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
 using LearnDesign_Pattern.Singleton_Patterns;
+using LearnDesign_Pattern.Template_Patterns;
 
 namespace LearnDesign_Pattern
 {
@@ -186,6 +187,11 @@ namespace LearnDesign_Pattern
             Person proxy=new Friend();
             proxy.BuyProduct();
 
+            //模板方法
+            Console.WriteLine("---------Template_Patterns----------");
+            Spinach spinach=new Spinach();
+            spinach.cookVegetable();
+            
             Console.ReadKey();
 
 
