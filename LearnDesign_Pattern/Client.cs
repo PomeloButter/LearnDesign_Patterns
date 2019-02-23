@@ -9,6 +9,7 @@ using LearnDesign_Pattern.Decorator_Patterns;
 using LearnDesign_Pattern.Facade_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Flyweight_Patterns;
+using LearnDesign_Pattern.Iterator_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
@@ -201,6 +202,17 @@ namespace LearnDesign_Pattern
             Command command = new ConcreteCommand(receiver);
             var invoke = new Invoke(command);
             invoke.ExecuteCommand();
+
+            //迭代器模式
+            Console.WriteLine("---------Iterator_Patterns----------");
+            IListCollection list=new ConcreteList();
+            var terator = list.GetITerator();
+            while (terator.MoveNext())
+            {
+                int i =(int) terator.GetCurrent();
+                Console.WriteLine(i.ToString());
+                terator.Next();
+            }
 
             Console.ReadKey();
         }
