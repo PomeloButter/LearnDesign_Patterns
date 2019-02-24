@@ -14,6 +14,7 @@ using LearnDesign_Pattern.Mediator_Patterns;
 using LearnDesign_Pattern.Observer_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
+using LearnDesign_Pattern.Responsibility_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
 using LearnDesign_Pattern.Singleton_Patterns;
 using LearnDesign_Pattern.State_Patterns;
@@ -254,6 +255,23 @@ namespace LearnDesign_Pattern
 
             operation = new InterestOperation(new EnterpriseTaxStrategy());
             Console.WriteLine("企业支付的税为：{0}", operation.GetTax(50000.00));
+            //责任链模式
+            Console.WriteLine("---------Responsibility_Patterns----------");
+            PurchaseRequest purchaseRequest=new PurchaseRequest(4000,"phone");
+            PurchaseRequest softPurchaseRequest =new PurchaseRequest(10000,"vs");
+            PurchaseRequest computeRequest=new PurchaseRequest(40000,"computer");
+
+
+            Approver manager=new Manager("pomelo");
+            Approver vp=new VicePresident("yuuko");
+            Approver pre=new President("jesse");
+
+            manager.NextApprover = vp;
+            vp.NextApprover = pre;
+
+            manager.ProcessRequest(purchaseRequest);
+            manager.ProcessRequest(softPurchaseRequest);
+            manager.ProcessRequest(computeRequest);
             Console.ReadKey();
         }
     }
