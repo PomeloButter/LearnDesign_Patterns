@@ -4,7 +4,7 @@ namespace LearnDesign_Pattern.Observer_Patterns
 {
     public class TenXun
     {
-        private List<IObserver> observers=new List<IObserver>();
+        private List<IObserver> _observers=new List<IObserver>();
        
         public TenXun(string info, string symbol)
         {
@@ -18,17 +18,17 @@ namespace LearnDesign_Pattern.Observer_Patterns
 
         public void AddObserver(IObserver observer)
         {
-            observers.Add(observer);
+            _observers.Add(observer);
         }
 
         public void RemoveObserver(IObserver observer)
         {
-            observers.Remove(observer);
+            _observers.Remove(observer);
         }
 
         public void Update()
         {
-            foreach (var item in observers)
+            foreach (var item in _observers)
             {
                 item?.Receive(this);
             }

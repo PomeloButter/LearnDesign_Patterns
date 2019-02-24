@@ -10,6 +10,7 @@ using LearnDesign_Pattern.Facade_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Flyweight_Patterns;
 using LearnDesign_Pattern.Iterator_Patterns;
+using LearnDesign_Pattern.Mediator_Patterns;
 using LearnDesign_Pattern.Observer_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
@@ -220,6 +221,21 @@ namespace LearnDesign_Pattern
             tenXun.AddObserver(new Subscriber("pomelo"));
             tenXun.AddObserver(new Subscriber("yuuko"));
             tenXun.Update();
+            //中介者模式
+            Console.WriteLine("---------Mediator_Patterns----------");
+            AbstractCardPartner a=new ParterA();
+            AbstractCardPartner b=new ParterB();
+            a.MoneyCount = 20;
+            b.MoneyCount = 20;
+            AbstractMediator mediator = new MediatorPater(a,b);
+            a.ChangCount(5,mediator);
+            Console.WriteLine("A现在的钱是：{0}",a.MoneyCount);
+            Console.WriteLine("B现在的钱是：{0}",b.MoneyCount);
+
+            b.ChangCount(10,mediator);
+            Console.WriteLine("A现在的钱是：{0}", a.MoneyCount);
+            Console.WriteLine("B现在的钱是：{0}", b.MoneyCount);
+
             Console.ReadKey();
         }
     }
