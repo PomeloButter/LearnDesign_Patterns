@@ -17,6 +17,7 @@ using LearnDesign_Pattern.Proxy_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
 using LearnDesign_Pattern.Singleton_Patterns;
 using LearnDesign_Pattern.State_Patterns;
+using LearnDesign_Pattern.Stragety_Patterns;
 using LearnDesign_Pattern.Template_Patterns;
 
 namespace LearnDesign_Pattern
@@ -246,6 +247,13 @@ namespace LearnDesign_Pattern
             account.PayInterest();
             account.Withdraw(2000);
             account.Withdraw(500);
+            //策略者模式
+            Console.WriteLine("---------stragety_Patterns----------");
+            InterestOperation operation=new InterestOperation(new PersonalTaxStrategy());
+            Console.WriteLine("个人支付的税为：{0}", operation.GetTax(5000.00));
+
+            operation = new InterestOperation(new EnterpriseTaxStrategy());
+            Console.WriteLine("企业支付的税为：{0}", operation.GetTax(50000.00));
             Console.ReadKey();
         }
     }
