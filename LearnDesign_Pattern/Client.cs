@@ -16,6 +16,7 @@ using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
 using LearnDesign_Pattern.Singleton_Patterns;
+using LearnDesign_Pattern.State_Patterns;
 using LearnDesign_Pattern.Template_Patterns;
 
 namespace LearnDesign_Pattern
@@ -236,6 +237,15 @@ namespace LearnDesign_Pattern
             Console.WriteLine("A现在的钱是：{0}", a.MoneyCount);
             Console.WriteLine("B现在的钱是：{0}", b.MoneyCount);
 
+            //状态者模式
+            Console.WriteLine("---------state_Patterns----------");
+            Account account=new Account("pomelo");
+            account.Deposit(1000);
+            account.Deposit(200);
+            account.Deposit(600);
+            account.PayInterest();
+            account.Withdraw(2000);
+            account.Withdraw(500);
             Console.ReadKey();
         }
     }
