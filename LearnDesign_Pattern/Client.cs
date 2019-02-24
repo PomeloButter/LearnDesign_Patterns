@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Threading;
 using LearnDesign_Pattern.AbstractFactory_Patterns;
 using LearnDesign_Pattern.Adapter_Patterns;
 using LearnDesign_Pattern.Bridge_Patterns;
@@ -11,6 +15,7 @@ using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Flyweight_Patterns;
 using LearnDesign_Pattern.Iterator_Patterns;
 using LearnDesign_Pattern.Mediator_Patterns;
+using LearnDesign_Pattern.Memento_Patterns;
 using LearnDesign_Pattern.Observer_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
@@ -211,38 +216,39 @@ namespace LearnDesign_Pattern
 
             //迭代器模式
             Console.WriteLine("---------Iterator_Patterns----------");
-            IListCollection list=new ConcreteList();
+            IListCollection list = new ConcreteList();
             var terator = list.GetITerator();
             while (terator.MoveNext())
             {
-                int i =(int) terator.GetCurrent();
+                var i = (int) terator.GetCurrent();
                 Console.WriteLine(i.ToString());
                 terator.Next();
             }
+
             //观察者模式
             Console.WriteLine("---------Observer_Patterns----------");
-            TenXun tenXun=new TenXunGame("LOL","游戏需要更新");
+            TenXun tenXun = new TenXunGame("LOL", "游戏需要更新");
             tenXun.AddObserver(new Subscriber("pomelo"));
             tenXun.AddObserver(new Subscriber("yuuko"));
             tenXun.Update();
             //中介者模式
             Console.WriteLine("---------Mediator_Patterns----------");
-            AbstractCardPartner a=new ParterA();
-            AbstractCardPartner b=new ParterB();
+            AbstractCardPartner a = new ParterA();
+            AbstractCardPartner b = new ParterB();
             a.MoneyCount = 20;
             b.MoneyCount = 20;
-            AbstractMediator mediator = new MediatorPater(a,b);
-            a.ChangCount(5,mediator);
-            Console.WriteLine("A现在的钱是：{0}",a.MoneyCount);
-            Console.WriteLine("B现在的钱是：{0}",b.MoneyCount);
+            AbstractMediator mediator = new MediatorPater(a, b);
+            a.ChangCount(5, mediator);
+            Console.WriteLine("A现在的钱是：{0}", a.MoneyCount);
+            Console.WriteLine("B现在的钱是：{0}", b.MoneyCount);
 
-            b.ChangCount(10,mediator);
+            b.ChangCount(10, mediator);
             Console.WriteLine("A现在的钱是：{0}", a.MoneyCount);
             Console.WriteLine("B现在的钱是：{0}", b.MoneyCount);
 
             //状态者模式
             Console.WriteLine("---------state_Patterns----------");
-            Account account=new Account("pomelo");
+            var account = new Account("pomelo");
             account.Deposit(1000);
             account.Deposit(200);
             account.Deposit(600);
@@ -251,21 +257,21 @@ namespace LearnDesign_Pattern
             account.Withdraw(500);
             //策略者模式
             Console.WriteLine("---------stragety_Patterns----------");
-            InterestOperation operation=new InterestOperation(new PersonalTaxStrategy());
+            var operation = new InterestOperation(new PersonalTaxStrategy());
             Console.WriteLine("个人支付的税为：{0}", operation.GetTax(5000.00));
 
             operation = new InterestOperation(new EnterpriseTaxStrategy());
             Console.WriteLine("企业支付的税为：{0}", operation.GetTax(50000.00));
             //责任链模式
             Console.WriteLine("---------Responsibility_Patterns----------");
-            PurchaseRequest purchaseRequest=new PurchaseRequest(4000,"phone");
-            PurchaseRequest softPurchaseRequest =new PurchaseRequest(10000,"vs");
-            PurchaseRequest computeRequest=new PurchaseRequest(40000,"computer");
+            var purchaseRequest = new PurchaseRequest(4000, "phone");
+            var softPurchaseRequest = new PurchaseRequest(10000, "vs");
+            var computeRequest = new PurchaseRequest(40000, "computer");
 
 
-            Approver manager=new Manager("pomelo");
-            Approver vp=new VicePresident("yuuko");
-            Approver pre=new President("jesse");
+            Approver manager = new Manager("pomelo");
+            Approver vp = new VicePresident("yuuko");
+            Approver pre = new President("jesse");
 
             manager.NextApprover = vp;
             vp.NextApprover = pre;
@@ -276,12 +282,61 @@ namespace LearnDesign_Pattern
 
             //访问者模式
             Console.WriteLine("---------Vistor_Patterns----------");
-            ObjectStructure objectStructure=new ObjectStructure();
-            foreach (Element e in objectStructure.Elements)
+            var objectStructure = new ObjectStructure();
+            foreach (Element e in objectStructure.Elements) e.Accept(new ConcreteVistor());
+
+            //备忘录模式
+            Console.WriteLine("---------Memento_Patterns----------");
+
+            var persons = new List<ContactPerson>
             {
-                e.Accept(new ConcreteVistor());
+                new ContactPerson {Name = "Pomelo", MobileNum = "123445"},
+                new ContactPerson {Name = "Yuuko", MobileNum = "234565"},
+                new ContactPerson {Name = "Jeese ", MobileNum = "231455"}
+            };
+            var mobileOwner = new MobileOwner(persons);
+            mobileOwner.Show();
+
+            var caretaker = new Caretaker();
+            caretaker.ContactMementoDic.Add(DateTime.Now.ToString(CultureInfo.InvariantCulture),
+                mobileOwner.CreateContactMemento());
+
+            Console.WriteLine("----移除最后一个联系人--------");
+            mobileOwner.ContactPersons.RemoveAt(2);
+            mobileOwner.Show();
+            Thread.Sleep(1000);
+            caretaker.ContactMementoDic.Add(DateTime.Now.ToString(CultureInfo.InvariantCulture),
+                mobileOwner.CreateContactMemento());
+
+            Console.WriteLine("-------恢复联系人列表,请从以下列表选择恢复的日期------");
+            var keyCollection = caretaker.ContactMementoDic.Keys;
+            foreach (var k in keyCollection) Console.WriteLine("Key = {0}", k);
+            while (true)
+            {
+                Console.Write("请输入数字,按窗口的关闭键退出:");
+
+                var index = -1;
+                try
+                {
+                    index = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("输入的格式错误");
+                    continue;
+                }
+
+                if (index < keyCollection.Count &&
+                    caretaker.ContactMementoDic.TryGetValue(keyCollection.ElementAt(index), out var contactMentor))
+                {
+                    mobileOwner.RestoreMemento(contactMentor);
+                    mobileOwner.Show();
+                }
+                else
+                {
+                    Console.WriteLine("输入的索引大于集合长度！");
+                }
             }
-            Console.ReadKey();
         }
     }
 }
