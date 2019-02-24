@@ -20,6 +20,7 @@ using LearnDesign_Pattern.Singleton_Patterns;
 using LearnDesign_Pattern.State_Patterns;
 using LearnDesign_Pattern.Stragety_Patterns;
 using LearnDesign_Pattern.Template_Patterns;
+using LearnDesign_Pattern.Vistor_Patterns;
 
 namespace LearnDesign_Pattern
 {
@@ -272,6 +273,14 @@ namespace LearnDesign_Pattern
             manager.ProcessRequest(purchaseRequest);
             manager.ProcessRequest(softPurchaseRequest);
             manager.ProcessRequest(computeRequest);
+
+            //访问者模式
+            Console.WriteLine("---------Vistor_Patterns----------");
+            ObjectStructure objectStructure=new ObjectStructure();
+            foreach (Element e in objectStructure.Elements)
+            {
+                e.Accept(new ConcreteVistor());
+            }
             Console.ReadKey();
         }
     }
