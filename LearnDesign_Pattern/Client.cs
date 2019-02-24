@@ -10,6 +10,7 @@ using LearnDesign_Pattern.Facade_Patterns;
 using LearnDesign_Pattern.Factory_Patterns;
 using LearnDesign_Pattern.Flyweight_Patterns;
 using LearnDesign_Pattern.Iterator_Patterns;
+using LearnDesign_Pattern.Observer_Patterns;
 using LearnDesign_Pattern.Prototype_Patterns;
 using LearnDesign_Pattern.Proxy_Patterns;
 using LearnDesign_Pattern.SimpleFactory_Patterns;
@@ -213,7 +214,12 @@ namespace LearnDesign_Pattern
                 Console.WriteLine(i.ToString());
                 terator.Next();
             }
-
+            //观察者模式
+            Console.WriteLine("---------Observer_Patterns----------");
+            TenXun tenXun=new TenXunGame("LOL","游戏需要更新");
+            tenXun.AddObserver(new Subscriber("pomelo"));
+            tenXun.AddObserver(new Subscriber("yuuko"));
+            tenXun.Update();
             Console.ReadKey();
         }
     }
